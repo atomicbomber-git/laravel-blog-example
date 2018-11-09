@@ -10477,3 +10477,16 @@ a.text-dark:focus {
   padding: 2rem;
 }
 
+.octicon-container {
+  top: .125em;
+  position: relative;
+}
+
+.octicon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+

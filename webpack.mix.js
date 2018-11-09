@@ -16,5 +16,4 @@ mix.js('resources/js/app.js', 'public/js')
     .copy('node_modules/tinymce/skins', 'public/js/skins')
     .copy('node_modules/tinymce/plugins', 'public/js/plugins')
     .sass('resources/sass/app.scss', 'public/css')
-    .browserSync('localhost:8000');
 

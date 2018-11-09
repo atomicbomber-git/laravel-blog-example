@@ -10,7 +10,7 @@
                     <a
                         class='nav-link dropdown-toggle' href='#' id='post' role='button'
                         data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                        <i class='fa fa-item'></i>
+                        <span class='octicon-container octicon' data-octicon-type='file'></span>
                         Post
                     </a>
                     <div class='dropdown-menu' aria-labelledby='post'>

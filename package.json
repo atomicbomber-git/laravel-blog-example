@@ -22,6 +22,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "octicons": "^8.1.0",
         "tinymce": "^4.8.5"
     }
 }

@@ -57,6 +57,7 @@ tinyMCE.init({
     selector: '#editor',
     body_class: 'tinymce-editor',
     plugins: 'link image emoticons',
+    image_caption: true,
     toolbar: [
         'undo redo | styleselect | bold italic | image | alignleft aligncenter alignright emoticons'
     ],

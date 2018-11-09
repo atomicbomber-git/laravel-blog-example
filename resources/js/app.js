@@ -20,13 +20,13 @@ require('tinymce');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-// const files = require.context('./', true, /\.vue$/i)
+const files = require.context('./', true, /\.vue$/i)
 
-// files.keys().map(key => {
-//     return Vue.component(_.last(key.split('/')).split('.')[0], files(key))
-// })
+files.keys().map(key => {
+    return Vue.component(_.last(key.split('/')).split('.')[0], files(key))
+})
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,3 +37,21 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+
+// Load octicons
+const octicons = require('octicons');
+
+document.querySelectorAll(".octicon")
+    .forEach(node => {
+        
+        if (octicons[node.dataset.octiconType] === undefined) {
+            return;
+        }
+
+        node.innerHTML = octicons[node.dataset.octiconType].toSVG({
+            height: "1em",
+            width: "1em",
+            fill: "currentColor"
+        })
+    })

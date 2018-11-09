@@ -10,11 +10,16 @@
     <div class="my-4">
         <a href="{{ route('post.create') }}" class="btn btn-primary">
             Add New Post
+            <span class="octicon-container octicon" data-octicon-type="plus"> </span>
         </a>
     </div>
+
+    <div id="app">
+        <example-component/>
+    </div>
     
-    <div class='table-responsive'>
-        <table class='table table-sm table-bordered table-striped'>
+    {{-- <div class='table-responsive'>
+        <table class='table table-sm table-striped'>
            <thead>
                 <tr>
                     <th> # </th>
@@ -32,14 +37,17 @@
                     <td>
                         <a href="{{ route('post.view', $post) }}" class="mb-2 btn btn-dark">
                             View
+                            <span class="octicon-container octicon" data-octicon-type="eye"> </span>
                         </a>
                         <a href="{{ route('post.edit', $post) }}" class="mb-2 btn btn-dark">
                             Edit
+                            <span class="octicon-container octicon" data-octicon-type="pencil"> </span>
                         </a>
                         <form class="d-inline-block" action="{{ route('post.delete', $post) }}" method="POST">
                             @csrf
                             <button class="mb-2 btn btn-danger">
                                 Delete
+                                <span class="octicon-container octicon" data-octicon-type="trashcan"> </span>
                             </button>
                         </form>
                     </td>
@@ -47,6 +55,9 @@
                @endforeach
            </tbody>
         </table>
-    </div>
+    </div> --}}
 </div>
+
 @endsection
+
+@javascript('posts', $posts)

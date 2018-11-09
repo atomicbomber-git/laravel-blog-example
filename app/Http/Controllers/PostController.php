@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\DomCrawler\Crawler;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -105,7 +105,11 @@ class PostController extends Controller
 
     public function delete(Post $post)
     {
-        $post->delete();
+        DB::transaction(function() use($post) {
+            $post->images()->delete();
+            $post->delete();
+        });
+
         return back();
     }
 }

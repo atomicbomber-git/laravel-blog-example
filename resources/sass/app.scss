@@ -17,3 +17,14 @@
   background: #fff;
   padding: 2rem;
 }
+
+// For Octicons
+.octicon-container {
+  top: .125em;
+  position: relative;
+}
+
+.octicon {
+  display: inline-flex;
+  align-self: center;
+}
