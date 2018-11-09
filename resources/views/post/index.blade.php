@@ -8,7 +8,7 @@
     </h1>
 
     <div class="my-4">
-        <a href="{{ route('post.create') }}" class="btn btn-dark">
+        <a href="{{ route('post.create') }}" class="btn btn-primary">
             Add New Post
         </a>
     </div>
@@ -33,12 +33,15 @@
                         <a href="{{ route('post.view', $post) }}" class="mb-2 btn btn-dark">
                             View
                         </a>
-                        <a href="#" class="mb-2 btn btn-dark">
+                        <a href="{{ route('post.edit', $post) }}" class="mb-2 btn btn-dark">
                             Edit
                         </a>
-                        <button class="mb-2 btn btn-danger">
-                            Delete
-                        </button>
+                        <form class="d-inline-block" action="{{ route('post.delete', $post) }}" method="POST">
+                            @csrf
+                            <button class="mb-2 btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
                @endforeach

@@ -56,7 +56,25 @@
 tinyMCE.init({
     selector: '#editor',
     body_class: 'tinymce-editor',
-    content_css : '{{ asset('css/app.css') }}'
+    plugins: 'link image emoticons',
+    toolbar: [
+        'undo redo | styleselect | bold italic | image | alignleft aligncenter alignright emoticons'
+    ],
+    content_css: '{{ asset('css/app.css') }}',
+    images_upload_handler: function(blobInfo, success, failure) {
+        
+        let formData = new FormData()
+        console.log(blobInfo)
+        formData.append('image', blobInfo.blob());
+        
+        axios.post(`/post/upload_image`, formData, { headers: { 'Content-Type': 'multipart/form-data' }})
+            .then(response => {
+                success("Image upload successful.")
+            })
+            .catch(error => {
+                failure("Image upload failed.")
+            })
+    }
 })
 .then(editors => {
     editors[0].setContent(`{!! old('content') !!}`)
